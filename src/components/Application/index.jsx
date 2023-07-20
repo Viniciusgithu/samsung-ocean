@@ -5,17 +5,20 @@ import { CardComponent } from '../Cards'
 
 export function Application() {
   const [char, setChar] = React.useState([])
+  const [page, setPage] = React.useState(1)
+  const [countPages, setCountPages] = React.useState('')
 
   async function carregarDadosApi() {
-    const apiUrl = `https://rickandmortyapi.com/api/character`
+    const apiUrl = `https://rickandmortyapi.com/api/character?page=${page}`
     const response = await fetch(apiUrl)
     const body = await response.json()
     setChar(body.results)
+    setCountPages(body.info.pages)
   }
 
   React.useEffect(() => {
     carregarDadosApi()
-  }, [])
+  }, [page])
 
 
   return (
@@ -39,7 +42,10 @@ export function Application() {
             })
           }
         </div>
-        <button>Carregar mais</button>
+        {
+          (!(page === countPages)) && <button onClick={() => setPage(page + 1)}>Carregar mais</button>
+        }
+
       </ContentChar>
     </ContainerApp>
   )
