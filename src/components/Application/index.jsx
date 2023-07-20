@@ -6,14 +6,15 @@ import { CardComponent } from '../Cards'
 export function Application() {
   const [char, setChar] = React.useState([])
 
+  async function carregarDadosApi() {
+    const apiUrl = `https://rickandmortyapi.com/api/character`
+    const response = await fetch(apiUrl)
+    const body = await response.json()
+    setChar(body.results)
+  }
+
   React.useEffect(() => {
-    async function Api() {
-      const apiUrl = `https://rickandmortyapi.com/api/character`
-      const response = await fetch(apiUrl)
-      const body = await response.json()
-      setChar(body.results)
-    }
-    Api()
+    carregarDadosApi()
   }, [])
 
 
