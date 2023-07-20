@@ -17,6 +17,9 @@ export const HeaderApp = styled.div`
   h1 {
     font-size: 3.2rem;
   }
+  p {
+    font-size: 2rem;
+  }
 
 `
 

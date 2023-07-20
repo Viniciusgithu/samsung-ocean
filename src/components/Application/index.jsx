@@ -7,6 +7,7 @@ export function Application() {
   const [char, setChar] = React.useState([])
   const [page, setPage] = React.useState(1)
   const [countPages, setCountPages] = React.useState('')
+  const [qtdChar, setQtdChar] = React.useState('')
 
   async function carregarDadosApi() {
     const apiUrl = `https://rickandmortyapi.com/api/character?page=${page}`
@@ -14,6 +15,7 @@ export function Application() {
     const body = await response.json()
     setChar(body.results)
     setCountPages(body.info.pages)
+    setQtdChar(body.info.count)
   }
 
   React.useEffect(() => {
@@ -25,6 +27,7 @@ export function Application() {
     <ContainerApp>
       <HeaderApp>
         <h1>Rick and Morty</h1>
+        <p>Personagens: {qtdChar}</p>
       </HeaderApp>
       <ContentChar>
         <div>
