@@ -26,7 +26,7 @@ export const HeaderApp = styled.div`
 export const ContentChar = styled.div`
   & > div {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 1.6rem;
   }
 

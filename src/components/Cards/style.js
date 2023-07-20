@@ -13,10 +13,20 @@ export const ContainerCard = styled.div`
     overflow: hidden;
     border-radius: 4px;
     img {
-      width: 70%;
-      height: 70%;
+      margin: 0 auto;
+      width: 100%;
+      height: 60%;
       object-fit: cover;
     }
+   
+    h3, p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .5rem;
+      font-size: 1rem;
+    }
+
   }  
 
 
